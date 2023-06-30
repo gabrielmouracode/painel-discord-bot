@@ -52,7 +52,7 @@ function guildChannels(id, name){
 }
 function messagesChannels(guild,id, name){
     const channelName = document.getElementById('chat-header')
-    channelName.textContent = name
+    channelName.textContent = "# "+name
 
     const chatContainer = document.getElementById('chat-display');
     chatContainer.innerHTML = '';
