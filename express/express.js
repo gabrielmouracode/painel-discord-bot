@@ -71,7 +71,9 @@ app.get('/messages/:channelId', async (req, res) => {
     let mensagem = []
     messages.forEach(message => {
       if(message){
-        mensagem.push({user: {username: message.author.username, avatar: message.author.avatar, id: message.author.id}, content: message.content, data: message.createdTimestamp})
+        if(message.content){
+          mensagem.push({user: {username: message.author.username, avatar: message.author.avatar, id: message.author.id}, content: message.content, data: message.createdTimestamp})
+        }   
       }else{
         mensagem.push[{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Nenhuma mensagem encontrada`, data: null}]
       }
@@ -79,7 +81,7 @@ app.get('/messages/:channelId', async (req, res) => {
     });
     res.json(mensagem);
   } catch (error) {
-    mensagem = [{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Nenhuma mensagem encontrada`}]
+    mensagem = [{user: {username: client.user.username, avatar: client.user.avatar, id: client.user.id}, content: `Erro 404`}]
     res.json(mensagem);
   }
   
