@@ -34,7 +34,7 @@ function guildChannels(id, name){
             const channelElement = document.createElement('div')
             channelElement.classList.add('channel')
             channelElement.id = channel.id
-            channelElement.textContent = channel.name
+            channelElement.textContent = `# `+channel.name
 
             channelsContainer.appendChild(channelElement);
             channelElement.addEventListener('click', event => {
